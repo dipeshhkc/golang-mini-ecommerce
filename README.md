@@ -1,6 +1,6 @@
 # golang-mini-ecommerce
 
-### Run a project using
+### Run a project with hot-reloading (uses https://github.com/codegangsta/gin )
 
     make dev
     
