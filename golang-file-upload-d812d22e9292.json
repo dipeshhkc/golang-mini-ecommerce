@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "golang-file-upload",
+  "private_key_id": "d812d22e9292fe78ff239941a4e8f2df36996f16",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQC6Ob3GHVZuJHJL\ngNDQhbMkWl1t2G44d3DfTPvybZ+q2cy2KRT6Ez12sZjr/+/PGXXrTaP1HAPGsjcT\njIIOi8NueNpmXWNFhyyjVYYrrE/QOgMC42Nz8RAzB146S2dgSkR4lFJr1DRCcsU7\na0GhKV3C4ukO8vgqUM2b/EtCRNziP8sHW1J76GdKXZOz2GXoz/nhyZgasGqfppGW\nb1uEeI+51aHOaJ5N5tAGf/UBaVg5bgu8AuikmK3dcSb2Ao5SBDGrLtxczg4LetR/\nF/CcbDD051rR4pgAx1bm7f6/bVwRf+4qqzHOhvM97WbZOqkHtzXAItG2mi1chDKY\no6Q3jeaHAgMBAAECggEAHrp0ZAJnRplg+rBwxFerba4ziHKUDWE4EMClOiV4mTqD\nGvPAcFtIYxN/BkIfEe9Dk+YlzcYnoVu61tDyjO/m+Y2bjBSQ0uIxLWppTz+Jk/Re\nltVqjbETWTg4Bip3Dl5y2eqvhvdnACfr/5f9JlirDgNfLYZOCL14j+qbiH3QbMyN\nurTxMFu5IQUKWwfZFVOOjKzTW2HxBW6K8769z1BOBFRfzHcrhMnIW0XeWBiupWFQ\nnitbQ6q4EIiTUH0Fl0LV2MjddTyE/lnz10QKJIBtZMFbZ6Gx60RSyB1k5OQtEtMK\nNxYN4vwashQTZHds4o0Jl0TFQTWV0Oas/e0jmCYPEQKBgQDqDQerUBTVOK5mBm7l\nX1vA7iAWw63paXtc9OoDcIqMXYEdvIppthD20/J+HDPv1KuYoazOGY65m7ejMORP\nNQB13AagG3ZjsqoSxxF9AqGstNYTubBwFd2QG5OpT65bpHyW+KK+1VkKB3n6vjzQ\nYrnUoFMkxcsEAlapQP4bmfmrcwKBgQDLsIu2k0GFLGIpRcRPIJE/n0JKRYIj3Cyd\n6/TCgqtdonC7KSOplg2AETc1guTax7a1NcwytnShj5f/UWWAHNzJ+YPYHbEAfwBV\nvbWlWT60zJ6+bjKXueeAtjt80lexhg5xO5cso9CNW2jsitnUz13FxlGUpxJSP2pt\nEAJLvtL7nQKBgQCGvo2lwOrdfk5ZCmcZwnZucikjMfCTqliNQarf5BC/kq1c00jU\nZy8JCyhWFiKIdmV778gut2QF03I7j1BBkX/8Wnmt/2F/MELdoKGe2L7/UPTWUlcT\nkGMILfgqx2bX97CKsgXv25/xODCvfIpCZjQaB1sWlpC0dCw0MOiaN2EXpQKBgQCW\nak0CCkQ8H8ZtTAPnmtkn7md5iVLNQG4CQJiCexQpFSfCTmLzfMeDZzMp5PszRH/7\n2TptyKbgF7Xa6TTXInk4/XULRwHKp/6LUoitDfZsdR5U6fOab8IxHmFXj80KX0CT\nBbphUKdVe8dDxlWN/YP15Lmh2K6C5imlWEkZvlT3UQKBgQDEXKeHBNbgxGrsCyZ8\nrf8lSM1rLZQ3zNRB6IKecEnt1TArtX1z6tHGG6tt5DTk2dOv4wuA/l6uQbbhWG/y\nLI8UWRmHrHSxFV5WBptbzVoILAoLg39knaYkZVQm+Aht3T+URTw6schXcq+JkUR1\nTqVzkRtBE+L5ex9VaaLFjVN4fg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "golang-file@golang-file-upload.iam.gserviceaccount.com",
+  "client_id": "102828113874585542452",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/golang-file%40golang-file-upload.iam.gserviceaccount.com"
+}
