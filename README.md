@@ -2,4 +2,8 @@
 
 ### Run a project using
 
-`make dev` OR `make`
+    make dev
+    
+OR SIMPLY
+
+    make
