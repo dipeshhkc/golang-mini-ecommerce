@@ -1,4 +1,5 @@
 # golang-mini-ecommerce
 
+### Run a project using
 
-make dev or make ---> to run project
+`make dev` OR `make`
