@@ -19,6 +19,7 @@ type UserHandler interface {
 	SignInUser(*gin.Context)
 	UpdateUser(*gin.Context)
 	DeleteUser(*gin.Context)
+	GetProductOrdered(*gin.Context)
 }
 
 type userHandler struct {
@@ -119,7 +120,7 @@ func (h *userHandler) UpdateUser(ctx *gin.Context) {
 		ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
-	id := ctx.Param("id")
+	id := ctx.Param("user")
 	intID, err := strconv.Atoi(id)
 	if err != nil {
 		ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
@@ -137,7 +138,7 @@ func (h *userHandler) UpdateUser(ctx *gin.Context) {
 
 func (h *userHandler) DeleteUser(ctx *gin.Context) {
 	var user model.User
-	id := ctx.Param("id")
+	id := ctx.Param("user")
 	intID, _ := strconv.Atoi(id)
 	user.ID = uint(intID)
 	user, err := h.repo.DeleteUser(user)
@@ -148,4 +149,17 @@ func (h *userHandler) DeleteUser(ctx *gin.Context) {
 	}
 	ctx.JSON(http.StatusOK, user)
 
+}
+
+func (h *userHandler) GetProductOrdered(ctx *gin.Context) {
+
+	userStr := ctx.Param("user")
+	userID, _ := strconv.Atoi(userStr)
+	if products, err := h.repo.GetProductOrdered(userID); err != nil {
+		ctx.JSON(http.StatusBadRequest, gin.H{
+			"error": err.Error(),
+		})
+	} else {
+		ctx.JSON(http.StatusOK, products)
+	}
 }

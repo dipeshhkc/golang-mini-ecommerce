@@ -14,6 +14,7 @@ type UserRepository interface {
 	GetAllUser() ([]model.User, error)
 	UpdateUser(model.User) (model.User, error)
 	DeleteUser(model.User) (model.User, error)
+	GetProductOrdered(int) ([]model.Order, error)
 }
 
 type userRepository struct {
@@ -55,4 +56,8 @@ func (db *userRepository) DeleteUser(user model.User) (model.User, error) {
 		return user, err
 	}
 	return user, db.connection.Delete(&user).Error
+}
+
+func (db *userRepository) GetProductOrdered(userID int) (orders []model.Order, err error) {
+	return orders, db.connection.Where("user_id = ?", userID).Set("gorm:auto_preload", true).Find(&orders).Error
 }

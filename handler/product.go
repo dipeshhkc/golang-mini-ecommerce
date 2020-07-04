@@ -5,20 +5,22 @@ import (
 	"mini-ecommerce/repository"
 	"net/http"
 	"strconv"
+
 	"github.com/gin-gonic/gin"
 )
 
-
-//ProductHandler --> interface to Product handler 
+//ProductHandler --> interface to Product handler
 type ProductHandler interface {
+	GetProduct(*gin.Context)
+	GetAllProduct(*gin.Context)
 	AddProduct(*gin.Context)
 	UpdateProduct(*gin.Context)
 	DeleteProduct(*gin.Context)
 }
 
-type productHandler struct{
+type productHandler struct {
 	repo repository.ProductRepository
-} 
+}
 
 //NewProductHandler --> returns new handler for product entity
 func NewProductHandler() ProductHandler {
@@ -27,31 +29,63 @@ func NewProductHandler() ProductHandler {
 	}
 }
 
-func(h *productHandler) AddProduct(ctx *gin.Context){
-	var product model.Product
-	if err := ctx.ShouldBindJSON(&product); err != nil {
-		ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
-	}
-	product, err := h.repo.AddProduct(product)
+func (h *productHandler) GetAllProduct(ctx *gin.Context) {
+	product, err := h.repo.GetAllproduct()
 	if err != nil {
 		ctx.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
 
 	}
 	ctx.JSON(http.StatusOK, product)
 
 }
-func(h *productHandler) UpdateProduct(ctx *gin.Context){
+
+func (h *productHandler) GetProduct(ctx *gin.Context) {
+	prodStr := ctx.Param("product")
+	prodID, err := strconv.Atoi(prodStr)
+	if err != nil {
+		ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+	product, err := h.repo.Getproduct(prodID)
+	if err != nil {
+		ctx.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+
+	}
+	ctx.JSON(http.StatusOK, product)
+
+}
+
+func (h *productHandler) AddProduct(ctx *gin.Context) {
+	var product model.Product
+	if err := ctx.ShouldBindJSON(&product); err != nil {
+		ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+	product, err := h.repo.AddProduct(product)
+	if err != nil {
+		ctx.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+
+	}
+	ctx.JSON(http.StatusOK, product)
+
+}
+func (h *productHandler) UpdateProduct(ctx *gin.Context) {
 
 	var product model.Product
 	if err := ctx.ShouldBindJSON(&product); err != nil {
 		ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
 	}
-	id := ctx.Param("id")
-	intID, err := strconv.Atoi(id)
+	prodStr := ctx.Param("product")
+	prodID, err := strconv.Atoi(prodStr)
 	if err != nil {
 		ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
 	}
-	product.ID = uint(intID)
+	product.ID = uint(prodID)
 	product, err = h.repo.UpdateProduct(product)
 	if err != nil {
 		ctx.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
@@ -61,12 +95,12 @@ func(h *productHandler) UpdateProduct(ctx *gin.Context){
 	ctx.JSON(http.StatusOK, product)
 
 }
-func(h *productHandler) DeleteProduct(ctx *gin.Context){
+func (h *productHandler) DeleteProduct(ctx *gin.Context) {
 
 	var product model.Product
-	id := ctx.Param("id")
-	intID, _ := strconv.Atoi(id)
-	product.ID = uint(intID)
+	prodStr := ctx.Param("product")
+	prodID, _ := strconv.Atoi(prodStr)
+	product.ID = uint(prodID)
 	product, err := h.repo.DeleteProduct(product)
 	if err != nil {
 		ctx.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})

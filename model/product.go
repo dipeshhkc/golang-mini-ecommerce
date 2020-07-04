@@ -9,3 +9,8 @@ type Product struct {
 	Quantity    int    `json:"quantity"`
 	Description string `json:"description"`
 }
+
+//TableName --> Table for Product Model
+func (Product) TableName() string {
+	return "products"
+}

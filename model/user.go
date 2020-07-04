@@ -8,5 +8,9 @@ type User struct {
 	Name     string `json:"name" binding:"required"`
 	Email    string `json:"email" binding:"required,email" gorm:"unique"`
 	Password string `json:"password" binding:"required"`
-	Orders   []Order
+}
+
+//TableName --> Table for Product Model
+func (User) TableName() string {
+	return "users"
 }
