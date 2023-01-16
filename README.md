@@ -1,4 +1,4 @@
-# golang-mini-ecommerce
+# Learning Golang by making Mini Ecommerce
 
 ## To Start this Project
 
